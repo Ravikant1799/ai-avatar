@@ -157,7 +157,7 @@ const renderToCanvas = async (tensor: tf.Tensor, canvas: HTMLCanvasElement) => {
   const [height, width] = tensor.shape.slice(1, 3);
   canvas.width = width;
   canvas.height = height;
-  await tf.browser.toPixels(tensor.squeeze(), canvas);
+  await tf.browser.toPixels(tensor.squeeze() as tf.Tensor3D, canvas);
 };
 
 const downloadCanvasImage = (
