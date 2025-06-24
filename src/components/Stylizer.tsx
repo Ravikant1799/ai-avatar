@@ -55,16 +55,14 @@ export default function Stylizer({
     const styleTensor = imageToTensor(styleImg);
 
     try {
-      const stylized = await tf.tidy(async () => {
-        const styleBottleneck = (await predictorModel.executeAsync(
-          styleTensor
-        )) as tf.Tensor;
-        const stylizedOutput = (await transformerModel.executeAsync([
+      const styleBottleneck = (await predictorModel.executeAsync(
+        styleTensor
+      )) as tf.Tensor;
+      const stylized = tf.tidy(() => {
+        return transformerModel.execute([
           contentTensor,
           styleBottleneck,
-        ])) as tf.Tensor;
-        styleBottleneck.dispose(); // optional, as tidy will auto-clean
-        return stylizedOutput;
+        ]) as tf.Tensor;
       });
 
       await renderToCanvas(stylized, canvasRef.current);
