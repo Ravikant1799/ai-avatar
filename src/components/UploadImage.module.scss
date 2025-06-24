@@ -1,0 +1,45 @@
+.uploadContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
+  padding: 1rem;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.dragActive {
+  background-color: #f0f8ff;
+  border-color: #0070f3;
+}
+
+.uploadLabel {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.fileInput {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f9f9f9;
+  cursor: pointer;
+}
+
+.imagePreview {
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  max-width: 300px;
+  height: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
